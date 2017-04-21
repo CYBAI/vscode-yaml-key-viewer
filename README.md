@@ -1,5 +1,11 @@
 # YAML Key Viewer for Visual Studio Code
 
+[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/github/release/CYBAI/vscode-yaml-key-viewer.svg?style=flat-square)](https://github.com/CYBAI/vscode-yaml-key-viewer/releases)
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/cybai.yaml-key-viewer.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=cybai.yaml-key-viewer)
+[![Travis](https://img.shields.io/travis/CYBAI/vscode-yaml-key-viewer.svg?style=flat-square)](https://travis-ci.org/CYBAI/vscode-yaml-key-viewer)
+[![David](https://img.shields.io/david/dev/CYBAI/vscode-yaml-key-viewer.svg?style=flat-square)](https://david-dm.org/CYBAI/vscode-yaml-key-viewer?type=dev)
+
 ## Usage
 
 You can use this extension to get the full path of the key where your cursor is on.
