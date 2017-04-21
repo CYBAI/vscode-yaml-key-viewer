@@ -1,6 +1,6 @@
 {
   "name": "yaml-key-viewer",
-  "displayName": "YAML key viewer for Visual Studio Code",
+  "displayName": "YAML key viewer",
   "description": "YAML key viewer for Visual Studio Code",
   "version": "0.0.1",
   "publisher": "cybai",
