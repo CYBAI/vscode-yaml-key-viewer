@@ -6,11 +6,11 @@ You can use this extension to get the full path of the key where your cursor is 
 
 Use `Cmd-Shift-P` (Mac) or `Ctrl-Shift-P` (Windows/Linux) and choose `YAML: Get full key`
 
-![command](screenshots/command.png)
+![command](https://raw.githubusercontent.com/CYBAI/vscode-yaml-key-viewer/master/screenshots/command.png)
 
 Then, it will show the full path the key where your cursor is on.
 
-![result](screenshots/result.png)
+![result](https://raw.githubusercontent.com/CYBAI/vscode-yaml-key-viewer/master/screenshots/result.png)
 
 ## Installation
 
