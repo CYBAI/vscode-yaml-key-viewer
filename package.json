@@ -1,0 +1,38 @@
+{
+  "name": "yaml-key-viewer",
+  "displayName": "YAML key viewer for Visual Studio Code",
+  "description": "YAML key viewer for Visual Studio Code",
+  "version": "0.0.1",
+  "publisher": "cybai",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.parseYaml"
+  ],
+  "main": "./src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.parseYaml",
+        "title": "YAML: Get full key"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.40",
+    "eslint": "^3.6.0",
+    "mocha": "^2.3.3",
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0"
+  },
+  "dependencies": {}
+}
