@@ -7,7 +7,7 @@ const { parseYaml } = yamlParser;
 function activate(context) {
   console.log('yaml-key-viewer is active!');
 
-  var disposable = commands.registerCommand('extension.parseYaml', function () {
+  var disposable = commands.registerCommand('cybai.parseYaml', function () {
     var editor = window.activeTextEditor;
     if (!editor) {
       return;

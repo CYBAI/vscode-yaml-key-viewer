@@ -25,13 +25,13 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.parseYaml"
+    "onCommand:cybai.parseYaml"
   ],
   "main": "./src/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.parseYaml",
+        "command": "cybai.parseYaml",
         "title": "YAML: Get full key"
       }
     ]
