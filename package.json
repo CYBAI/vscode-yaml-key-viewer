@@ -4,6 +4,20 @@
   "description": "YAML key viewer for Visual Studio Code",
   "version": "0.0.1",
   "publisher": "cybai",
+  "author": {
+    "email": "cyb.ai.815@gmail.com",
+    "name": "cybai",
+    "url": "https://github.com/cybai"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CYBAI/vscode-yaml-key-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CYBAI/vscode-yaml-key-viewer/issues"
+  },
+  "homepage": "https://github.com/CYBAI/vscode-yaml-key-viewer/blob/master/README.md",
   "engines": {
     "vscode": "^1.11.0"
   },
