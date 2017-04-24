@@ -25,7 +25,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:cybai.parseYaml"
+        "onCommand:cybai.parseYaml",
+        "onCommand:cybai.parseYaml.copyToClipboard"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -33,6 +34,10 @@
             {
                 "command": "cybai.parseYaml",
                 "title": "YAML: Get full key"
+            },
+            {
+                "command": "cybai.parseYaml.copyToClipboard",
+                "title": "YAML: Copy full key to clipboard"
             }
         ]
     },

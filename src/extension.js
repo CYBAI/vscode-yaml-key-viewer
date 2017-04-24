@@ -1,14 +1,13 @@
 const vscode = require('vscode');
 const yamlParser = require('./yaml-parser');
+const copyPaste = require('copy-paste');
 
 const { commands, window } = vscode;
 const { parseYaml } = yamlParser;
+const { copy } = copyPaste;
 
-function activate(context) {
-  console.log('yaml-key-viewer is active!');
-
-  var disposable = commands.registerCommand('cybai.parseYaml', function () {
-    var editor = window.activeTextEditor;
+function getParsedFullKey() {
+  const editor = window.activeTextEditor;
     if (!editor) {
       return;
     }
@@ -23,16 +22,32 @@ function activate(context) {
         return;
       }
 
-      window.showInformationMessage(
-        Object.keys(parsed).reduce((result, key) => {
-          result += !result ? parsed[key] : '.' + parsed[key];
-          return result;
-        }, '')
-      );
+      return Object.keys(parsed).reduce((result, key) => {
+        result += !result ? parsed[key] : '.' + parsed[key];
+        return result;
+      }, '');
+    }
+}
+
+function activate(context) {
+  console.log('yaml-key-viewer is active!');
+
+  const parseYamlCommand = commands.registerCommand('cybai.parseYaml', function () {
+    const result = getParsedFullKey();
+    if (result) {
+      window.showInformationMessage(result);
     }
   });
 
-  context.subscriptions.push(disposable);
+  const copyToClipboardCommand = commands.registerCommand('cybai.parseYaml.copyToClipboard', function () {
+    const parsedResult = getParsedFullKey();
+    copy(parsedResult);
+
+    window.showInformationMessage(`${parsedResult} has been copied to clipboard.`);
+  });
+
+  context.subscriptions.push(parseYamlCommand);
+  context.subscriptions.push(copyToClipboardCommand);
 }
 exports.activate = activate;
 
