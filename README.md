@@ -10,7 +10,15 @@
 
 You can use this extension to get the full path of the key where your cursor is on.
 
-Use `Cmd-Shift-P` (Mac) or `Ctrl-Shift-P` (Windows/Linux) and choose `YAML: Get full key`
+Use `Cmd-Shift-P` (Mac) or `Ctrl-Shift-P` (Windows/Linux).
+
+There are two commands:
+- `YAML: Get full key`: See the full key
+- `YAML: Copy full key to clipboard`: Copy the full key to clipboard
+
+Example:
+
+Use `YAML: Get full key` like below
 
 ![command](https://raw.githubusercontent.com/CYBAI/vscode-yaml-key-viewer/master/screenshots/command.png)
 
@@ -24,7 +32,7 @@ Then, it will show the full path the key where your cursor is on.
 2. Launch *Code*
 3. From the command palette `Ctrl-Shift-P` (Windows, Linux) or `Cmd-Shift-P` (OSX)
 4. Select `Install Extension`
-5. Choose the extension `YAML key viewer for Visual Studio Code`
+5. Choose the extension `YAML key viewer`
 6. Reload *Visual Studio Code*
 
 ## License
