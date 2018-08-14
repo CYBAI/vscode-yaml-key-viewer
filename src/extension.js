@@ -41,7 +41,7 @@ function activate(context) {
 
   const copyToClipboardCommand = commands.registerCommand('cybai.parseYaml.copyToClipboard', function () {
     const parsedResult = getParsedFullKey();
-    copy(parsedResult);
+    atom.clipboard.write(parsedResult);
 
     window.showInformationMessage(`${parsedResult} has been copied to clipboard.`);
   });
