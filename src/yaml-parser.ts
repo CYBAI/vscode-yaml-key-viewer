@@ -42,20 +42,12 @@ function parseYaml({
 
     const expectedLineSpace = textIndentations(expectedIndentationLine);
 
-    let checkDone = false;
-
     return E.right(
         lines.filter(isUnnecessaryLine).reduce((result, line) => {
-            if (!checkDone) {
-                if (line === expectedIndentationLine) {
-                    checkDone = true;
-                }
-                const spaces = textIndentations(line);
-                if (expectedLineSpace >= spaces) {
-                    result[spaces] = line
-                        .replace(FIND_KEY_REGEX, '$1')
-                        .replace(/^\s*/, '');
-                }
+            const spaces = textIndentations(line);
+
+            if (expectedLineSpace.length >= spaces.length) {
+                result[spaces] = line.replace(FIND_KEY_REGEX, '$1').trim();
             }
 
             return result;
