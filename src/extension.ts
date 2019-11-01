@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
 import { parseYaml } from './yaml-parser';
-import { copy } from 'copy-paste';
 
 function getParsedFullKey() {
     const editor = vscode.window.activeTextEditor;
@@ -36,7 +35,8 @@ function activate(context: vscode.ExtensionContext) {
         'cybai.parseYaml.copyToClipboard',
         function() {
             const parsedResult = getParsedFullKey();
-            copy(parsedResult);
+
+            vscode.env.clipboard.writeText(parsedResult);
 
             vscode.window.showInformationMessage(
                 `${parsedResult} has been copied to clipboard.`
