@@ -7,7 +7,7 @@ const commentLineStartWithSpaces = '    # This is a comment';
 const keyLine = '  key: value';
 const valueLine = '  - true';
 
-const mockForClosest =`seq:
+const mockForClosest = `seq:
   # Ordered sequence of nodes
   Block style: !!seq
   - Mercury   # Rotates - no light/dark sides.
@@ -18,14 +18,14 @@ const mockForClosest =`seq:
 const selectedForClosest = '  - Mercury   # Rotates - no light/dark sides.';
 const expectedLineForClosest = '  Block style: !!seq';
 
-module.exports = {
-  mockForClosest,
-  selectedForClosest,
-  expectedLineForClosest,
-  keyLine,
-  valueLine,
-  emptyLine,
-  commentLine,
-  lineWithOnlyWhitespaces,
-  commentLineStartWithSpaces,
+export {
+    mockForClosest,
+    selectedForClosest,
+    expectedLineForClosest,
+    keyLine,
+    valueLine,
+    emptyLine,
+    commentLine,
+    lineWithOnlyWhitespaces,
+    commentLineStartWithSpaces,
 };
