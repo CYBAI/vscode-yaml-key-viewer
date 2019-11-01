@@ -9,7 +9,7 @@ const {
   textIndentations,
   isEmptyOrWhitespace,
   isUnnecessaryLine,
-} = require('../src/util');
+} = require('../../src/util');
 
 const {
   mockForClosest,
