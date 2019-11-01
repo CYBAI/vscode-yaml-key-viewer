@@ -1,59 +1,59 @@
 {
-    "name": "yaml-key-viewer",
-    "displayName": "YAML key viewer",
-    "description": "YAML key viewer for Visual Studio Code",
-    "version": "0.1.0",
-    "publisher": "cybai",
-    "author": {
-        "email": "cyb.ai.815@gmail.com",
-        "name": "cybai",
-        "url": "https://github.com/cybai"
-    },
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/CYBAI/vscode-yaml-key-viewer.git"
-    },
-    "bugs": {
-        "url": "https://github.com/CYBAI/vscode-yaml-key-viewer/issues"
-    },
-    "homepage": "https://github.com/CYBAI/vscode-yaml-key-viewer/blob/master/README.md",
-    "engines": {
-        "vscode": "^1.11.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:cybai.parseYaml",
-        "onCommand:cybai.parseYaml.copyToClipboard"
-    ],
-    "main": "./src/extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "cybai.parseYaml",
-                "title": "YAML: Get full key"
-            },
-            {
-                "command": "cybai.parseYaml.copyToClipboard",
-                "title": "YAML: Copy full key to clipboard"
-            }
-        ]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.32",
-        "@types/node": "^6.0.40",
-        "eslint": "^3.6.0",
-        "mocha": "^2.3.3",
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0"
-    },
-    "dependencies": {
-        "copy-paste": "^1.3.0"
-    }
+  "name": "yaml-key-viewer",
+  "displayName": "YAML key viewer",
+  "description": "YAML key viewer for Visual Studio Code",
+  "version": "0.1.0",
+  "publisher": "cybai",
+  "author": {
+    "email": "cyb.ai.815@gmail.com",
+    "name": "cybai",
+    "url": "https://github.com/cybai"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CYBAI/vscode-yaml-key-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CYBAI/vscode-yaml-key-viewer/issues"
+  },
+  "homepage": "https://github.com/CYBAI/vscode-yaml-key-viewer/blob/master/README.md",
+  "engines": {
+    "vscode": "^1.34.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cybai.parseYaml",
+    "onCommand:cybai.parseYaml.copyToClipboard"
+  ],
+  "main": "./src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cybai.parseYaml",
+        "title": "YAML: Get full key"
+      },
+      {
+        "command": "cybai.parseYaml.copyToClipboard",
+        "title": "YAML: Copy full key to clipboard"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node ./test/index"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.3",
+    "@types/vscode": "^1.39.0",
+    "eslint": "^6.6.0",
+    "mocha": "^6.2.2",
+    "typescript": "^3.6.4",
+    "vscode-test": "^1.2.2"
+  },
+  "dependencies": {
+    "copy-paste": "^1.3.0"
+  }
 }

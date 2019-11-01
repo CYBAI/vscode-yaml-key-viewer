@@ -4,7 +4,7 @@ const assert = require('assert');
 const path = require('path');
 
 const vscode = require('vscode');
-const { parseYaml } = require('../src/yaml-parser');
+const { parseYaml } = require('../../src/yaml-parser');
 
 suite("YAML Parser Tests", function () {
   test("Parse YAML function", function () {
