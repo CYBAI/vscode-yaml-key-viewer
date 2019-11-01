@@ -42,7 +42,8 @@
         ]
     },
     "scripts": {
-        "test": "node ./out/test/index"
+        "test": "node ./out/test/index",
+        "clean": "rm -r out"
     },
     "devDependencies": {
         "@types/mocha": "^5.2.7",
@@ -53,5 +54,7 @@
         "typescript": "^3.6.4",
         "vscode-test": "^1.2.2"
     },
-    "dependencies": {}
+    "dependencies": {
+        "fp-ts": "^2.1.1"
+    }
 }
