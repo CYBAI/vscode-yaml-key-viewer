@@ -19,7 +19,7 @@
     },
     "homepage": "https://github.com/CYBAI/vscode-yaml-key-viewer/blob/master/README.md",
     "engines": {
-        "vscode": "^1.34.0"
+        "vscode": "^1.39.0"
     },
     "categories": [
         "Other"
@@ -43,7 +43,8 @@
     },
     "scripts": {
         "test": "node ./out/test/index",
-        "clean": "rm -r out"
+        "clean": "rm -r out",
+        "vscode:prepublish": "tsc"
     },
     "devDependencies": {
         "@types/mocha": "^5.2.7",
