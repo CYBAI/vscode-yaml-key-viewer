@@ -2,7 +2,7 @@
     "name": "yaml-key-viewer",
     "displayName": "YAML key viewer",
     "description": "YAML key viewer for Visual Studio Code",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "publisher": "cybai",
     "author": {
         "email": "cyb.ai.815@gmail.com",
