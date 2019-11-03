@@ -1,3 +1,7 @@
-const FIND_KEY_REGEX = /^\s*[\-|\s]?([\w|\s|\~\(|\)]*):.*/;
+export const FIND_KEY_REGEX = /^\s*[\-|\s]?([\w|\s|\~\(|\)]*):.*/;
 
-export { FIND_KEY_REGEX };
+export enum Error {
+    InvalidExtension,
+    CommentLine,
+    BlankLine,
+}

@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
+import * as E from 'fp-ts/lib/Either';
 
-import { FIND_KEY_REGEX } from './constants';
+import { FIND_KEY_REGEX, Error } from './constants';
 import {
     isKey,
     isCommentLine,
@@ -9,12 +10,18 @@ import {
     findLineOfClosestKey,
 } from './util';
 
-function parseYaml({ document, selection }: vscode.TextEditor) {
-    let checkDone = false;
-
+function parseYaml({
+    document,
+    selection,
+}: vscode.TextEditor): E.Either<Error, unknown> {
     const selectedLine = document.lineAt(selection.active);
-    if (selectedLine.isEmptyOrWhitespace || isCommentLine(selectedLine.text)) {
-        return false;
+
+    if (selectedLine.isEmptyOrWhitespace) {
+        return E.left(Error.BlankLine);
+    }
+
+    if (isCommentLine(selectedLine.text)) {
+        return E.left(Error.CommentLine);
     }
 
     const range = new vscode.Range(
@@ -32,23 +39,20 @@ function parseYaml({ document, selection }: vscode.TextEditor) {
     const expectedIndentationLine = isKey(selectedLine.text)
         ? selectedLine.text
         : findLineOfClosestKey(selectedLine.text, lines);
+
     const expectedLineSpace = textIndentations(expectedIndentationLine);
 
-    return lines.filter(isUnnecessaryLine).reduce((result, line) => {
-        if (!checkDone) {
-            if (line === expectedIndentationLine) {
-                checkDone = true;
-            }
+    return E.right(
+        lines.filter(isUnnecessaryLine).reduce((result, line) => {
             const spaces = textIndentations(line);
-            if (expectedLineSpace >= spaces) {
-                result[spaces] = line
-                    .replace(FIND_KEY_REGEX, '$1')
-                    .replace(/^\s*/, '');
-            }
-        }
 
-        return result;
-    }, {});
+            if (expectedLineSpace.length >= spaces.length) {
+                result[spaces] = line.replace(FIND_KEY_REGEX, '$1').trim();
+            }
+
+            return result;
+        }, {})
+    );
 }
 
 export { parseYaml };

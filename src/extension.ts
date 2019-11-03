@@ -1,20 +1,25 @@
 import * as vscode from 'vscode';
+import * as E from 'fp-ts/lib/Either';
+
 import { parseYaml } from './yaml-parser';
+import { Error } from './constants';
 
-function getParsedFullKey() {
-    const editor = vscode.window.activeTextEditor;
-    const doc = editor.document;
+function getParsedFullKey(editor: vscode.TextEditor): E.Either<Error, string> {
+    const document = editor.document;
 
-    if (doc.languageId === 'yaml') {
-        const parsed = parseYaml(editor);
-        if (!parsed) {
-            return;
+    switch (document.languageId) {
+        case 'yaml': {
+            const parsedE = parseYaml(editor);
+
+            return E.map(parsed =>
+                Object.keys(parsed).reduce((result, key) => {
+                    result += !result ? parsed[key] : '.' + parsed[key];
+                    return result;
+                }, '')
+            )(parsedE);
         }
-
-        return Object.keys(parsed).reduce((result, key) => {
-            result += !result ? parsed[key] : '.' + parsed[key];
-            return result;
-        }, '');
+        default:
+            return E.left(Error.InvalidExtension);
     }
 }
 
@@ -24,23 +29,43 @@ function activate(context: vscode.ExtensionContext) {
     const parseYamlCommand = vscode.commands.registerCommand(
         'cybai.parseYaml',
         function() {
-            const result = getParsedFullKey();
-            if (result) {
-                vscode.window.showInformationMessage(result);
-            }
+            const result = getParsedFullKey(vscode.window.activeTextEditor);
+
+            E.bimap<Error, void, string, void>(
+                err => {
+                    switch (err) {
+                        case Error.InvalidExtension:
+                            vscode.window.showInformationMessage(
+                                'Please use this extension with yaml files.'
+                            );
+                    }
+                },
+                res => vscode.window.showInformationMessage(res)
+            )(result);
         }
     );
 
     const copyToClipboardCommand = vscode.commands.registerCommand(
         'cybai.parseYaml.copyToClipboard',
         function() {
-            const parsedResult = getParsedFullKey();
+            const result = getParsedFullKey(vscode.window.activeTextEditor);
 
-            vscode.env.clipboard.writeText(parsedResult);
-
-            vscode.window.showInformationMessage(
-                `${parsedResult} has been copied to clipboard.`
-            );
+            E.bimap<Error, void, string, void>(
+                err => {
+                    switch (err) {
+                        case Error.InvalidExtension:
+                            vscode.window.showInformationMessage(
+                                'Please use this extension with yaml files.'
+                            );
+                    }
+                },
+                res => {
+                    vscode.env.clipboard.writeText(res);
+                    vscode.window.showInformationMessage(
+                        `${result} has been copied to clipboard.`
+                    );
+                }
+            )(result);
         }
     );
 

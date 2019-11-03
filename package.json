@@ -2,7 +2,7 @@
     "name": "yaml-key-viewer",
     "displayName": "YAML key viewer",
     "description": "YAML key viewer for Visual Studio Code",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "publisher": "cybai",
     "author": {
         "email": "cyb.ai.815@gmail.com",
@@ -42,7 +42,8 @@
         ]
     },
     "scripts": {
-        "test": "node ./out/test/index"
+        "test": "node ./out/test/index",
+        "clean": "rm -r out"
     },
     "devDependencies": {
         "@types/mocha": "^5.2.7",
@@ -53,5 +54,7 @@
         "typescript": "^3.6.4",
         "vscode-test": "^1.2.2"
     },
-    "dependencies": {}
+    "dependencies": {
+        "fp-ts": "^2.1.1"
+    }
 }
