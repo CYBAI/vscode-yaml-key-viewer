@@ -35,14 +35,6 @@ Then, it will show the full path the key where your cursor is on.
 5. Choose the extension `YAML key viewer`
 6. Reload *Visual Studio Code*
 
-### Additional installation steps Linux
-Xclip is required.
-
-Install `xclip` on Debian/Ubuntu: ```sudo apt-get install xclip```
-
-Install `xclip` on CentOS/RHEL/Fedora: ```sudo yum install xclip``` (You must have epel/3rd part repositories enabled)
-
-
 ## License
 [MIT](LICENSE.md)
 
