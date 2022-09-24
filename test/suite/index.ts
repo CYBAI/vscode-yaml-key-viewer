@@ -26,7 +26,7 @@ function run() {
                     if (failures > 0) {
                         e(new Error(`${failures} tests failed.`));
                     } else {
-                        c();
+                        c(null);
                     }
                 });
             } catch (err) {
