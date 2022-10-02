@@ -34,7 +34,7 @@ function parseYaml({
     const lines = document.getText(range).split('\n');
 
     // Remove the first line of `---`
-    lines.shift();
+    lines?.[0] == "---" && lines.shift();
 
     const expectedIndentationLine = isKey(selectedLine.text)
         ? selectedLine.text
