@@ -8,7 +8,9 @@ function getParsedFullKey(editor: vscode.TextEditor): E.Either<Error, string> {
     const document = editor.document;
 
     switch (document.languageId) {
-        case 'yaml': {
+        case 'yaml': 
+        case 'ansible':
+        {
             const parsedE = parseYaml(editor);
 
             return E.map(parsed =>
